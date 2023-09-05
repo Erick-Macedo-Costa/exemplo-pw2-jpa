@@ -28,3 +28,5 @@ O material de referência utilizado para este exemplo pode ser encontrado no seg
 - Certifique-se de verificar e corrigir quaisquer erros de digitação ou configuração.
 
 Este projeto é um exercício prático para a disciplina de Programação para Web 2, e tem o intuito de demonstrar conceitos de JPA, injeção de dependência e desenvolvimento web utilizando o ecossistema Spring.
+
+Em processo...
