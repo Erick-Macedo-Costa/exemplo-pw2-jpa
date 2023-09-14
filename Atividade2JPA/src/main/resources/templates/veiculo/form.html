@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Veiculos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:src="/css/veiculo.css" />
+</head>
+<body>
+
+<h1>FORMULARIO</h1>
+<form th:action="${veiculo.id == null} ? @{/veiculos/save} : @{/veiculos/update}" th:object="${veiculo}" method="post">
+    <input type="hidden" th:field="*{id}">
+    <input type="text" th:field="*{modelo}"  placeholder="Modelo">
+    <input type="text" th:field="*{marca}"  placeholder="Marca">
+    <input type="text" th:field="*{anoFabricacao}"  placeholder="Ano de Fabricação">
+    <input type="text" th:field="*{placa}"  placeholder="Placa">
+    <input type="submit" value="Enviar">
+</form>
+</body>
+</html>
