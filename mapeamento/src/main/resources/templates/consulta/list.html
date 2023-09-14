@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta</title>
+    <link rel="stylesheet" type="text/css" href="/formato.css">
+</head>
+<body>
+<h1>Lista de Consultas</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Data</th>
+        <th>valor</th>
+        <th>Observação</th>
+    </tr>
+    <tr th:each="v : ${consultas}">
+        <td th:text="${v.id}"> </td>
+        <td th:text="${v.data}"> </td>
+        <td th:text="${v.valor}"> </td>
+        <td th:text="${v.observacao}"> </td>
+    </tr>
+</table>
+</body>
+</html>
