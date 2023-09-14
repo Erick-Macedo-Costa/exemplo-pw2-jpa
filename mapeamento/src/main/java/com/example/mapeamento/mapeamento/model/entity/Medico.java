@@ -1,5 +1,6 @@
 package com.example.mapeamento.mapeamento.model.entity;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,31 +13,11 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class Medico implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String nome;
+@DiscriminatorValue("M")
+public class Medico extends Pessoa {
     private String crm;
     @OneToMany(mappedBy = "medico")
     private List<Consulta> consultas;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getCrm() {
         return crm;
     }
@@ -54,6 +35,6 @@ public class Medico implements Serializable {
     }
 
     public String dadosMedico(){
-        return "Nome: " + this.nome + " CRM: " + this.crm + " Consultas: " + this.consultas;
+        return " CRM: " + this.crm + " Consultas: " + this.consultas;
     }
 }
