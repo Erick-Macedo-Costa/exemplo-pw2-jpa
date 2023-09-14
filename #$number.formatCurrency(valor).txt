@@ -1,2 +1,0 @@
-#$number.formatCurrency(valor)
-<link rel="stylesheet" href="veiculo.css">
