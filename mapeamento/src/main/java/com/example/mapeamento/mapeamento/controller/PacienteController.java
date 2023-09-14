@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,5 +27,29 @@ public class PacienteController {
     public ModelAndView consulta(@PathVariable("id") Long id, ModelMap model) {
         model.addAttribute("consultas", repository.paciente(id));
         return new ModelAndView("/paciente/list", model);
+    }
+
+    @PostMapping("/save")
+    public ModelAndView save(Paciente paciente){
+        repository.save(paciente);
+        return new ModelAndView("redirect:/paciente/list");
+    }
+
+    @GetMapping("/remove/{id}")
+    public ModelAndView remove(@PathVariable("id") Long id){
+        repository.remove(id);
+        return new ModelAndView("redirect:/paciente/list");
+    }
+
+    @GetMapping("/edit/{id}")
+    public ModelAndView edit(@PathVariable("id") Long id, ModelMap model) {
+        model.addAttribute("paciente", repository.paciente(id));
+        return new ModelAndView("/paciente/form", model);
+    }
+
+    @PostMapping("/update")
+    public ModelAndView update(Paciente paciente) {
+        repository.update(paciente);
+        return new ModelAndView("redirect:/paciente/list");
     }
 }

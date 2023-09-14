@@ -20,4 +20,16 @@ public class PacienteRepository {
         Query query = em.createQuery("from Paciente");
         return query.getResultList();
     }
+    public void save(Paciente paciente){
+        em.persist(paciente);
+    }
+    public void remove(Long id){
+        Paciente p = em.find(Paciente.class, id);
+        em.remove(p);
+    }
+
+    public void update(Paciente paciente){
+        em.merge(paciente);
+    }
+
 }

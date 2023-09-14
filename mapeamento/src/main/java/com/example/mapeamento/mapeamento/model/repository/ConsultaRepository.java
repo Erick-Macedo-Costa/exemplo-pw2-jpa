@@ -24,6 +24,10 @@ public class ConsultaRepository {
         Query query = em.createQuery("from Consulta as consulta where consulta.medico.id = " + id);
         return query.getResultList();
     }
+    public List<Consulta> consultas_paciente(Long id){
+        Query query = em.createQuery("from Consulta as consulta where consulta.paciente.id = " + id);
+        return query.getResultList();
+    }
 
 
 
