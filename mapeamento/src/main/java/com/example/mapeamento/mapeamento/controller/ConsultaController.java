@@ -23,14 +23,14 @@ public class ConsultaController {
         return new ModelAndView("/consulta/list", model);
     }
 
-    @GetMapping("/consulta/{id}")
-    public ModelAndView consulta(@PathVariable("id") Long id, ModelMap model) {
+    @GetMapping("/listamedico/{id}")
+    public ModelAndView listamedico(@PathVariable("id") Long id, ModelMap model) {
         model.addAttribute("consultas", repository.consultas_medico(id));
         return new ModelAndView("/consulta/list", model);
     }
 
-    @GetMapping("/paciente/{id}")
-    public ModelAndView paciente(@PathVariable("id") Long id, ModelMap model) {
+    @GetMapping("/listapaciente/{id}")
+    public ModelAndView listapaciente(@PathVariable("id") Long id, ModelMap model) {
         model.addAttribute("consultas", repository.consultas_paciente(id));
         return new ModelAndView("/consulta/list", model);
     }
