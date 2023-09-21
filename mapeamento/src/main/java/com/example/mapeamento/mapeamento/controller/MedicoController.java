@@ -23,28 +23,24 @@ public class MedicoController {
 
     @GetMapping("/form")
     public String form(Medico medico){
-        return "/medicos/form";
+        return "/medico/form";
     }
     @GetMapping("/list")
     public ModelAndView listar(ModelMap model) {
         model.addAttribute("medicos", repository.medicos());
         return new ModelAndView("/medico/list", model);
     }
-    @GetMapping("/consulta/{id}")
-    public ModelAndView consulta(@PathVariable("id") Long id, ModelMap model) {
-        model.addAttribute("consultas", repository.medico(id));
-        return new ModelAndView("/medico/list", model);
-    }
+
     @PostMapping("/save")
     public ModelAndView save(Medico medico){
         repository.save(medico);
-        return new ModelAndView("redirect:/medico/list");
+        return new ModelAndView("redirect:/medicos/list");
     }
 
     @GetMapping("/remove/{id}")
     public ModelAndView remove(@PathVariable("id") Long id){
         repository.remove(id);
-        return new ModelAndView("redirect:/medico/list");
+        return new ModelAndView("redirect:/medicos/list");
     }
 
     @GetMapping("/edit/{id}")
@@ -56,6 +52,6 @@ public class MedicoController {
     @PostMapping("/update")
     public ModelAndView update(Medico medico) {
         repository.update(medico);
-        return new ModelAndView("redirect:/medico/list");
+        return new ModelAndView("redirect:/medicos/list");
     }
 }

@@ -21,29 +21,24 @@ public class PacienteController {
     PacienteRepository repository;
     @GetMapping("/form")
     public String form(Paciente paciente){
-        return "/pacientes/form";
+        return "/paciente/form";
     }
     @GetMapping("/list")
     public ModelAndView listar(ModelMap model) {
         model.addAttribute("pacientes", repository.pacientes());
         return new ModelAndView("/paciente/list", model);
     }
-    @GetMapping("/consulta/{id}")
-    public ModelAndView consulta(@PathVariable("id") Long id, ModelMap model) {
-        model.addAttribute("consultas", repository.paciente(id));
-        return new ModelAndView("/paciente/list", model);
-    }
 
     @PostMapping("/save")
     public ModelAndView save(Paciente paciente){
         repository.save(paciente);
-        return new ModelAndView("redirect:/paciente/list");
+        return new ModelAndView("redirect:/pacientes/list");
     }
 
     @GetMapping("/remove/{id}")
     public ModelAndView remove(@PathVariable("id") Long id){
         repository.remove(id);
-        return new ModelAndView("redirect:/paciente/list");
+        return new ModelAndView("redirect:/pacientes/list");
     }
 
     @GetMapping("/edit/{id}")
@@ -55,6 +50,6 @@ public class PacienteController {
     @PostMapping("/update")
     public ModelAndView update(Paciente paciente) {
         repository.update(paciente);
-        return new ModelAndView("redirect:/paciente/list");
+        return new ModelAndView("redirect:/pacientes/list");
     }
 }
