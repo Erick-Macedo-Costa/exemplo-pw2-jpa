@@ -25,8 +25,8 @@ public class MedicoRepository {
         em.persist(medico);
     }
     public void remove(Long id){
-        Medico p = em.find(Medico.class, id);
-        em.remove(p);
+        Medico m = em.find(Medico.class, id);
+        em.remove(m);
     }
 
     public void update(Medico medico){
