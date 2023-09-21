@@ -1,5 +1,6 @@
 package com.example.mapeamento.mapeamento.controller;
 
+import com.example.mapeamento.mapeamento.model.entity.Medico;
 import com.example.mapeamento.mapeamento.model.entity.Paciente;
 import com.example.mapeamento.mapeamento.model.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class PacienteController {
     @Autowired
     PacienteRepository repository;
+    @GetMapping("/form")
+    public String form(Paciente paciente){
+        return "/pacientes/form";
+    }
     @GetMapping("/list")
     public ModelAndView listar(ModelMap model) {
         model.addAttribute("pacientes", repository.pacientes());

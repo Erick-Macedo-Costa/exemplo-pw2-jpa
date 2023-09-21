@@ -20,6 +20,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class MedicoController {
     @Autowired
     MedicoRepository repository;
+
+    @GetMapping("/form")
+    public String form(Medico medico){
+        return "/medicos/form";
+    }
     @GetMapping("/list")
     public ModelAndView listar(ModelMap model) {
         model.addAttribute("medicos", repository.medicos());
