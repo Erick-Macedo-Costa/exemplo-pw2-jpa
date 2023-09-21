@@ -8,7 +8,7 @@
 <body>
 
 <h1>Lista de Pacientes</h1>
-
+<a href="/pacientes/form">Adicionar</a>
 <table>
     <tr>
         <th>ID</th>
@@ -19,10 +19,9 @@
         <td th:text="${v.id}"> </td>
         <td th:text="${v.nome}"> </td>
         <td th:text="${v.telefone}"> </td>
-        <td> <a href="/pacientes/form">Adicionar</a> </td>
         <td> <a th:href="@{/consultas/listapaciente/{id}(id=${v.id})}">Consulta</a> </td>
-        <td> <a th:href="@{/cunsultas/edit/{id}(id=${v.id})}">Editar</a> </td>
-        <td> <a onclick="return window.confirm('Tem certeza que deseja excluir este registro?')"  th:href="@{/consulta/remove/{id}(id=${v.id})}">Excluir</a> </td>
+        <td> <a th:href="@{/pacientes/edit/{id}(id=${v.id})}">Editar</a> </td>
+        <td> <a onclick="return window.confirm('Tem certeza que deseja excluir este registro?')"  th:href="@{/pacientes/remove/{id}(id=${v.id})}">Excluir</a> </td>
     </tr>
 </table>
 </body>
