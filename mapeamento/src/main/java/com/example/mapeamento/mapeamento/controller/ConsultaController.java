@@ -28,10 +28,9 @@ public class ConsultaController {
         model.addAttribute("consultas", repository.consultas_medico(id));
         return new ModelAndView("/consulta/list", model);
     }
-
     @GetMapping("/listapaciente/{id}")
-    public ModelAndView listapaciente(@PathVariable("id") Long id, ModelMap model) {
+    public ModelAndView listapaciente(@PathVariable("id") Long id, ModelMap model){
         model.addAttribute("consultas", repository.consultas_paciente(id));
-        return new ModelAndView("/consulta/list", model);
+        return new ModelAndView("consulta/list");
     }
 }
