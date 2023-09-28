@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Paciente</title>
-    <link rel="stylesheet" type="text/css" href="/formato.css">
-</head>
+<html th:replace="~{fragments/layout :: layout(~{::head},~{::main})}">
+
+<head th:replace="~{fragments/head :: head(~{})}"></head>
+
 <body>
+<main>
 
 <h1>Lista de Pacientes</h1>
+    <link rel="stylesheet" type="text/css" href="/formato.css">
 <a href="/pacientes/form">Adicionar</a>
 <table>
     <tr>
@@ -24,5 +24,6 @@
         <td> <a onclick="return window.confirm('Tem certeza que deseja excluir este registro?')"  th:href="@{/pacientes/remove/{id}(id=${v.id})}">Excluir</a> </td>
     </tr>
 </table>
+    </main>
 </body>
 </html>
