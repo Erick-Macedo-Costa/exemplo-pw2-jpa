@@ -4,16 +4,17 @@
 <head th:replace="~{fragments/head :: head(~{})}"></head>
 
 <body>
-<main>
+<main class="container" >
 
 <h1>Lista de Pacientes</h1>
-    <link rel="stylesheet" type="text/css" href="/formato.css">
 <a href="/pacientes/form">Adicionar</a>
-<table>
+
+<table class="table table-bordered" >
     <tr>
         <th>ID</th>
         <th>Nome</th>
         <th>Telefone</th>
+        <th class="text-center" colspan="3">Açoes</th>
     </tr>
     <tr th:each="v : ${pacientes}">
         <td th:text="${v.id}"> </td>

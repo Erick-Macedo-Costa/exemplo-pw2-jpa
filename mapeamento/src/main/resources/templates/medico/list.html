@@ -6,15 +6,16 @@
 </head>
 
 <body>
-<main>
-    <link rel="stylesheet" type="text/css" href="/formato.css">
+<main class="container">
+
 <h1>Lista de Medicos</h1>
 <a href="/medicos/form">Adicionar</a>
-<table>
+<table class="table table-bordered">
     <tr>
         <th>ID</th>
         <th>Nome</th>
         <th>crm</th>
+        <th class="text-center" colspan="3">Açoes</th>
     </tr>
     <tr th:each="v : ${medicos}">
         <td th:text="${v.id}"> </td>
